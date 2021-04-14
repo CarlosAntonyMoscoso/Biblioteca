@@ -117,7 +117,7 @@ public class Biblioteca {
 		int cont = 100;
 
 		try {
-			FileReader fr = new FileReader("C:\\Users\\CARLITOS\\Desktop\\fichero\\Libro1.txt");// pasar un archivo csv
+			FileReader fr = new FileReader("C:\\Users\\CARLOS\\Desktop\\fichero\\Libro1.txt");// pasar un archivo csv
 			BufferedReader br = new BufferedReader(fr);// aqui se almanacena
 
 			String linea = br.readLine();// aqui lo lee
@@ -150,7 +150,7 @@ public class Biblioteca {
 		int cont = 1;
 
 		try {
-			FileReader fr = new FileReader("C:\\Users\\CARLITOS\\Desktop\\fichero\\Socio1.txt");// pasar un archivo csv
+			FileReader fr = new FileReader("C:\\Users\\CARLOS\\Desktop\\fichero\\Socio1.txt");// pasar un archivo csv
 			BufferedReader br = new BufferedReader(fr);// aqui se almanacena
 
 			String linea = br.readLine();// aqui lo lee
@@ -175,17 +175,7 @@ public class Biblioteca {
 		}
 	}
 
-	public void CopiaSeguridadSocio() throws IOException {
-		BufferedWriter bw = new BufferedWriter(new FileWriter("Reservas1.csv",true));
-		bw.newLine();
-		
-		
-		//aqui hacer un for each dependiendo de Reservas/Socio/Libro
-		bw.write(//meto aqui );
-		bw.newLine();
-		bw.close();
-	}
-
+	
 	public void IntroducirReservas() {
 		// fecha ya esta, ahora igualarlo y almacenarlo en Libro y Socio
 		ReservaLibro r;
@@ -193,7 +183,7 @@ public class Biblioteca {
 		String array[];
 
 		try {
-			FileReader fr = new FileReader("Reservas1.csv");
+			FileReader fr = new FileReader("C:\\Users\\CARLOS\\Desktop\\fichero\\Reservas1.txt");
 			BufferedReader br = new BufferedReader(fr);
 
 			String linea;
@@ -328,7 +318,7 @@ public class Biblioteca {
 				System.out.println("Introduzca el numero socio : ");
 				int op = ent.nextInt();
 				System.out.println("Acontinuacion se le mostrara las reservas echa por el cliente");
-				if (op > 0 && op <= 5 && op != 0) {
+				if (op < SociosLista.size() && op != 0) {
 
 					for (Socio a : SociosLista) {
 
@@ -353,6 +343,9 @@ public class Biblioteca {
 
 				} else {
 					System.out.println("Introduce por favor un numero de socio valido");
+					for(int i = 0; i < SociosLista.size(); i ++) {
+						System.out.println(SociosLista.get(i).getId());
+					}
 				}
 
 			} while (flag);
@@ -419,7 +412,7 @@ public class Biblioteca {
 			int op = ent.nextInt();
 
 			for (int e = 0; e < Reservas.size(); e++) {
-				if (Reservas.get(e).getNumeroReserva() == op) {
+				if ( (op-1)== Reservas.get(e).getNumeroReserva()) {
 
 					if (Reservas.size() == 0) {
 						System.out.println("No hay ninguna reserva");
@@ -445,5 +438,25 @@ public class Biblioteca {
 			}
 		}
 	}
+	public void CopiaSeguridadSocio() throws IOException {
+
+		try {
+			BufferedWriter bw = new BufferedWriter(
+					new FileWriter("C:\\Users\\CARLOS\\Desktop\\fichero\\Socio1.txt", false));
+
+			bw.newLine();
+
+			// aqui hacer un for each dependiendo de Reservas/Socio/Libro
+			for (Socio s : SociosLista) {
+				bw.write(s.toFichero());
+				bw.newLine();
+			}
+			bw.close();
+		} catch (IOException e) {
+			System.out.println("fichero no encontrado");
+		}
+
+	}
+	
 
 }

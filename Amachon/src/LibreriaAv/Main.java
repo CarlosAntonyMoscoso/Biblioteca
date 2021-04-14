@@ -1,11 +1,12 @@
 package LibreriaAv;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Biblioteca biblio = new Biblioteca();
 		
 
@@ -104,7 +105,7 @@ public class Main {
 			System.out.println("Error, introduzca un valor numerico entre el 1 y el 5, vuelva empezar la aplicacion");
 			
 		}
-		//biblio.CopiaSeguridad();
+		biblio.CopiaSeguridadSocio();
 	}
 
 

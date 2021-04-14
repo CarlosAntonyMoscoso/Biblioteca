@@ -75,7 +75,10 @@ public class Socio {
 	public void setLibrosReserva(int librosReserva) {
 		this.librosReserva = librosReserva;
 	}
-
+	public String toFichero() {
+		
+		return getId() + ";" +  getNombre() + ";" + getTelefono() + ";"+ getEmail() + ";"+ getLibrosReserva() + ";";
+	}
 	@Override
 	public String toString() {
 		return "Informacion del Socio: \n" + " -Numero de ID : " + getId() + "\n" + " -Nombre socio : "
