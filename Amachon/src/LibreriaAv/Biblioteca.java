@@ -476,5 +476,24 @@ public class Biblioteca {
 		}
 
 	}
+	public void CopiaSeguridadReservas() throws IOException {
+
+		try {
+			BufferedWriter bw = new BufferedWriter(
+					new FileWriter("C:\\Users\\CARLOS\\Desktop\\fichero\\Libro1.txt", false));
+
+			bw.newLine();
+
+			// aqui hacer un for each dependiendo de Reservas/Socio/Libro
+			for (ReservaLibro s : Reservas) {
+				bw.write(s.toFichero());
+				bw.newLine();
+			}
+			bw.close();
+		} catch (IOException e) {
+			System.out.println("fichero no encontrado");
+		}
+
+	}
 
 }

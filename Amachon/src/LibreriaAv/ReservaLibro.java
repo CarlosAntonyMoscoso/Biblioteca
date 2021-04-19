@@ -78,6 +78,10 @@ public class ReservaLibro {
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
+	public String toFichero() {
+		
+		return  getNumeroReserva() + ";" + getNumeroSocio() + ";" + getNumeroIsbn() + ";" + getFecha() + ";";
+	}
 
 	@Override
 		public String toString() { 
