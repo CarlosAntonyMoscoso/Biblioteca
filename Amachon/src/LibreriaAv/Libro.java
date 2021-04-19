@@ -76,6 +76,11 @@ public class Libro {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
+	
+	public String toFichero() {
+		
+		return getISBN() + ";" + getTitulo() + ";" + getAutor() + ";" + getEjemplares() + ";" + getPrecio() +";";
+	}
 
 	@Override
 	public String toString() {
