@@ -106,6 +106,8 @@ public class Main {
 			
 		}
 		biblio.CopiaSeguridadSocio();
+		biblio.CopiaSeguridadLibro();
+		biblio.CopiaSeguridadReservas();
 	}
 
 
